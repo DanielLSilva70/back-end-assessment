@@ -33,6 +33,13 @@ app.get("/api/fortune", (req, res) => {
   
 });
 
+const {
+  getCars,
+  createCar,
+  updateCar,
+  deleteCar
+} = require('cars.js')
+
 
 
 app.listen(4000, () => console.log("Server running on 4000"));
