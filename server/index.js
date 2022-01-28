@@ -38,8 +38,13 @@ const {
   createCar,
   updateCar,
   deleteCar
-} = require('cars.js')
+} = require('cars/')
 
+
+app.get("/api/cars", (req, res) => {
+  let cars = ['Hummer', 'H1', "20000", "2000", id]
+  res.status(200).send(cars)
+})
 
 
 app.listen(4000, () => console.log("Server running on 4000"));
