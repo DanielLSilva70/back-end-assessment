@@ -21,13 +21,14 @@ app.get("/api/compliment", (req, res) => {
   
 });
 
+
 app.get("/api/fortune", (req, res) => {
   const fortune = ["A beautiful, smart, and loving person will be coming into your life.",
   "A fresh start will put you on your way.", "A friend asks only for your time not your money.", "All will go well with your new project.",
   "Allow compassion to guide your decisions."];
   
   let random = Math.floor(Math.random() * fortune.length);
-  let randomFortunes = fortunes[random];
+  let randomFortunes = fortune[random];
   
   res.status(200).send(randomFortunes);
   
@@ -38,13 +39,13 @@ const {
   createCar,
   updateCar,
   deleteCar
-} = require('cars/')
+} = require('./cars')
 
 
-app.get("/api/cars", (req, res) => {
-  let cars = ['Hummer', 'H1', "20000", "2000", id]
-  res.status(200).send(cars)
-})
+app.get("/api/cars", getCars)
+app.put("/api/cars", updateCar)
+app.post("/api/cars", createCar)
+app.delete("/api/cars/:id", deleteCar)
 
 
 app.listen(4000, () => console.log("Server running on 4000"));

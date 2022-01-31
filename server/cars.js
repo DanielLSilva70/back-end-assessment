@@ -1,6 +1,35 @@
 
 
-let globalId = 0
+
+
+let cars = [{
+    id: 1,
+    year: 2006,
+    make: "honda",
+    model: "civic",
+    cost: 5000
+},
+{
+    id: 2,
+    year: 2000,
+    make: "ford",
+    model: "ranger",
+    cost: 6500
+},{
+    id: 3,
+    year: 2020,
+    make: "toyota",
+    model: "supra",
+    cost: 50000
+},{
+    id: 4,
+    year: 2019,
+    make: "ford",
+    model: "mustang",
+    cost: 40000
+}]
+
+
 
 module.exports = {
     getCars: (rew, res) => {
@@ -23,7 +52,7 @@ module.exports = {
     deleteCar: (req, res) => {
         let {id} = req.params
         let index = cars.findIndex(cars => cars.id === +id)
-        house.splice(index,1)
+        cars.splice(index,1)
         res.status(200).send(cars)
     },
     updateCar: (req, res) => {
